@@ -9,7 +9,7 @@ document.body.addEventListener("keydown", start);
 document.body.addEventListener("keyup", stop);
 document.body.addEventListener("keydown", createArrow);
 document.addEventListener("move", run);
-set(["./images/bg2a.png", "./images/bg1a.png"]);
+set(["./images/bg2.png", "./images/bg1.png"]);
 
 setInterval(() => {
   display({ detail: { time: 1 } });
@@ -26,11 +26,10 @@ function display({ detail }) {
 }
 function createArrow({ code }) {
   if (code != "Space") return;
-
   new Arrow("./images/arrow.png", pacmanRef.getBoundingClientRect(), gift.img);
 }
 
-let imgs = ["./images/gift.jpg", "./images/kamien.png"];
+let imgs = ["./images/gift.png","./images/gift2.png","./images/gift3.png", "./images/skucha.png"];
 let gift = new Gift(imgs, pacmanRef);
 document.querySelector("#speed").innerHTML = gift.speed;
 document.addEventListener("result", display);
