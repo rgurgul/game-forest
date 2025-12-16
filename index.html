@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body,
+      html {
+        height: 100%;
+        background-color: lightcoral;
+        overflow: hidden;
+      }
+      .hero {
+        position: absolute;
+        bottom: 0;
+        z-index: 1000;
+      }
+      .box {
+        position: absolute;
+      }
+      .box {
+        font-size: 3em;
+      }
+      #score,
+      #speed,
+      #time {
+        display: inline-block;
+        width: 60px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      score:
+      <div id="score">0</div>
+      speed:
+      <div id="speed">0</div>
+      time:
+      <div id="time">0</div>
+    </div>
+    <img src="images/hiro.png" class="hero" />
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
