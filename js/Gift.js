@@ -70,7 +70,7 @@ export class Gift extends Element {
   setStyle() {
     this.img.style = `
       position:absolute;
-      left: ${100 + Math.random() * (document.body.clientWidth - 200) + "px"}
+      left: ${400 + Math.random() * (document.body.clientWidth - 600) + "px"}
     `;
   }
   getRandom(arr) {
