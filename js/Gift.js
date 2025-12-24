@@ -22,12 +22,8 @@ export class Element {
   checkCollision(fn) {
     let isCollide = collide(this.img, this.collisionEl);
     let isOut = parseInt(this.img.style.top) > document.body.clientHeight || parseInt(this.img.style.top) < 0;
-    if (isCollide) {
-      fn(true);
-    }
-    if (isOut) {
-      fn(false);
-    }
+    isCollide && fn(true);
+    isOut && fn(false);
   }
 }
 
@@ -49,7 +45,7 @@ export class Arrow extends Element {
     let next = parseInt(this.img.style.bottom || 0) + 10;
     this.img.style.bottom = next + "px";
     this.checkCollision((hit) => {
-      //new Boom("./images/boom.png", this.ob.getBoundingClientRect());
+      new Boom("./images/boom.png", this.collisionEl.getBoundingClientRect());
       let isGift = this.collisionEl.dataset.isGift;
       hit && document.dispatchEvent(new CustomEvent("result", { detail: { score: +isGift ? -1 : 1 } }));
       this.collisionEl.remove();
@@ -103,6 +99,10 @@ export class Boom extends Element {
         bottom: ${top}px;
     `;
   }
-  moveGift() {}
+  moveGift() {
+    this.img.style.opacity = (this.img.style.opacity || 1) - 0.1;
+    this.img.style.scale = (this.img.style.scale || 1) + 1;
+    setTimeout(() => this.clear, 1000);
+  }
   setStyle() {}
 }

@@ -16,7 +16,6 @@ setInterval(() => {
 }, 1000);
 
 function display({ detail }) {
-  console.log(detail);
   let keys = Object.keys(detail);
   keys.forEach((xx) => {
     let el = document.querySelector(`#${xx}`);
