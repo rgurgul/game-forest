@@ -13,12 +13,12 @@ function createImg(url,i) {
 
 let imgs = [];
 
-export function set(params=[]) {
+export function bgSettings(params=[]) {
   params.forEach((url,i) => {
     imgs.push(createImg(url,i+1));
   });
 }
 
-export function run({ detail }) {
+export function bgMove({ detail }) {
   imgs.forEach((img) => (img.style.backgroundPosition = `${-detail / img.dataset.i/2}px bottom`));
 }

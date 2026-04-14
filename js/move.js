@@ -1,4 +1,4 @@
-export let settings = {
+export let moveSettings = {
   direction: false,
   move: false,
   timeout: false,
@@ -6,52 +6,27 @@ export let settings = {
 };
 
 function loop() {
-  move(settings.direction === "left" ? -5 : 5);
-  if (settings.move) requestAnimationFrame(loop);
+  move(moveSettings.direction === "ArrowLeft" ? -5 : 5);
+  if (moveSettings.move) requestAnimationFrame(loop);
 }
 
 function move(evt) {
-  let target = settings.target.getBoundingClientRect();
+  let target = moveSettings.target.getBoundingClientRect();
   let next = parseInt(target.left || 0) + evt;
   if (next > 0 && next && next < document.body.clientWidth - target.width) {
-    settings.target.style.left = next + "px";
+    moveSettings.target.style.left = next + "px";
     document.dispatchEvent(new CustomEvent("move", { detail: next }));
   }
 }
 
-export function start(evt) {
-  switch (evt.code) {
-    case "ArrowLeft":
-      startMoving("left");
-      break;
-    case "ArrowRight":
-      startMoving("right");
-      break;
-    default:
-      console.log("key not ok");
-      break;
-  }
-}
-
-function startMoving(dir) {
-  settings.direction = dir;
-  if (!settings.move) {
-    settings.move = true;
+export function startMoving(dir) {
+  moveSettings.direction = dir;
+  if (!moveSettings.move) {
+    moveSettings.move = true;
     requestAnimationFrame(loop);
   }
 }
 
-export function stop(evt) {
-  switch (evt.code) {
-    case "ArrowLeft":
-      stopMoving();
-      break;
-    case "ArrowRight":
-      stopMoving();
-      break;
-  }
-}
-
-function stopMoving() {
-  settings.move = false;
+export function stopMoving() {
+  moveSettings.move = false;
 }

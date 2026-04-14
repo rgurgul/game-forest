@@ -1,6 +1,5 @@
 export function collide(el1, el2) {
-  var gift = el1.getBoundingClientRect();
-  var santa = el2.getBoundingClientRect();
-  return gift.right > santa.left && gift.left < santa.right && gift.bottom > santa.top && gift.top < santa.bottom;
-  //result && callback();
+  var pos1 = el1.getBoundingClientRect();
+  var pos2 = el2.getBoundingClientRect();
+  return pos1.right > pos2.left && pos1.left < pos2.right && pos1.bottom > pos2.top && pos1.top < pos2.bottom;
 }
