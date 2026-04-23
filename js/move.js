@@ -19,8 +19,9 @@ function move(evt) {
   }
 }
 
-export function startMoving(dir) {
+export function startMoving(dir,target) {
   moveSettings.direction = dir;
+  moveSettings.target=target;
   if (!moveSettings.move) {
     moveSettings.move = true;
     requestAnimationFrame(loop);

@@ -1,6 +1,6 @@
 import { El } from "./element.js";
 
-export class Gift extends El {
+export class Gifts extends El {
   constructor(urls, collideEl) {
     super(collideEl);
     this.urls = urls;
