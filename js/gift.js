@@ -28,7 +28,7 @@ export class Gifts extends El {
     this.checkCollision((hit) => {
       if (hit) {
         this.speed--;
-        this.msg({ score: +this.img.dataset.isGift ? 1 : -1, speed: -1 });
+        this.msg({ score: +this.img.dataset.isGift ? 1 : -1, speed: 1 });
       }
       this.clear();
       this.url = this.getRandom(this.urls);

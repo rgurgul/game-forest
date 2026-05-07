@@ -6,3 +6,7 @@ export function display({ detail }) {
     el.innerHTML = result;
   });
 }
+
+export function showResults() {
+  setInterval(() => display({ detail: { time: 1 } }), 1000);
+}
