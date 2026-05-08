@@ -10,5 +10,5 @@ bgSettings(["./images/bg2.png", "./images/bg1.png"]);
 let pacman = new Pacman();
 let gifts = new Gifts(imgs, pacman);
 
-run(gifts, pacman.img);
+run(gifts, pacman);
 showResults();

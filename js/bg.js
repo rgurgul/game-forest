@@ -1,8 +1,8 @@
-function createImg(url,i) {
+function createImg(url, i) {
   let img = document.createElement("div");
   img.style.backgroundImage = `url(${url})`;
   img.style.backgroundRepeat = `repeat-x`;
-   img.style.backgroundPosition ='bottom'
+  img.style.backgroundPosition = "bottom";
   img.style.position = "absolute";
   img.dataset.i = i;
   img.style.width = "100vw";
@@ -13,12 +13,12 @@ function createImg(url,i) {
 
 let imgs = [];
 
-export function bgSettings(params=[]) {
-  params.forEach((url,i) => {
-    imgs.push(createImg(url,i+1));
+export function bgSettings(params = []) {
+  params.forEach((url, i) => {
+    imgs.push(createImg(url, i + 1));
   });
 }
 
 export function bgMove({ detail }) {
-  imgs.forEach((img) => (img.style.backgroundPosition = `${-detail / img.dataset.i/2}px bottom`));
+  imgs.forEach((img) => (img.style.backgroundPosition = `${-detail / img.dataset.i / 2}px bottom`));
 }
