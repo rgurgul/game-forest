@@ -20,10 +20,10 @@ export class Arrow extends El {
     let next = parseInt(this.img.style.bottom || 0) + 10;
     this.img.style.bottom = next + "px";
     this.checkCollision((hit) => {
-      new Boom("./images/boom.png", this.collisionEl.getBoundingClientRect());
-      let isGift = this.collisionEl.dataset.isGift;
+      new Boom("./images/boom.png", this.collisionEl.img.getBoundingClientRect());
+      let isGift = this.collisionEl.img.dataset.isGift;
       hit && document.dispatchEvent(new CustomEvent("result", { detail: { score: +isGift ? -1 : 1 } }));
-      this.collisionEl.remove();
+      this.collisionEl.img.remove();
       this.clear();
     });
     next > 1000 && this.clear();

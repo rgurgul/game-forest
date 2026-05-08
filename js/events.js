@@ -1,4 +1,4 @@
-import { Arrow } from "./arrow.js";
+import { Arrow } from "./els/arrow.js";
 import { bgMove } from "./bg.js";
 import { startMoving } from "./move.js";
 import { stopMoving } from "./move.js";
@@ -11,7 +11,7 @@ const action = (code, gifts, pacmanRef) => {
       startMoving(code, pacmanRef);
       break;
     case "Space":
-      new Arrow("./images/arrow.png", pacmanRef.getBoundingClientRect(), gifts.img);
+      new Arrow("./images/arrow.png", pacmanRef.getBoundingClientRect(), gifts);
       break;
   }
 };
