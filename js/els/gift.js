@@ -29,7 +29,7 @@ export class Gifts extends El {
       if (hit) {
         this.speed = this.speed + .5;
         this.msg({ score: +this.img.dataset.isGift ? 1 : -1, speed: 1 });
-        this.collisionEl.boom();
+        this.collisionEl?.boom();
       }
       this.clear();
       this.url = this.getRandom(this.urls);

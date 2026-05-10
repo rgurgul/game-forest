@@ -1,24 +1,27 @@
 import { Arrow } from "./els/arrow.js";
 import { bgMove } from "./bg.js";
 import { display } from "./results.js";
+import { pacman } from "./els/pacman.js";
+import { Gifts } from "./els/gift.js";
 
-const action = (code, gifts, pacmanRef) => {
-  switch (code) {
-    case "ArrowLeft":
-    case "ArrowRight":
-      pacmanRef.startMoving(code);
-      break;
-    case "Space":
-      new Arrow("./images/arrow.png", pacmanRef.img.getBoundingClientRect(), gifts);
-      break;
-  }
+const gifts = new Gifts([...[1, 2, 3].map((e) => `./images/gift${e}.png`), "./images/skucha.png"], pacman);
+
+const actions = {
+  ArrowLeft: (code) => pacman.startMoving(code),
+  ArrowRight: (code) => pacman.startMoving(code),
+  Space: () => new Arrow("./images/arrow.png", pacman.img.getBoundingClientRect(), gifts),
 };
 
-const stop = (code, pacmanRef) => ["ArrowLeft", "ArrowRight"].some((v) => v === code) && pacmanRef.stopMoving();
+const action = ({ code }) => {
+  if (!actions[code]) return;
+  actions[code](code);
+};
 
-export function run(gifts, pacmanRef) {
-  document.body.addEventListener("keydown", ({ code }) => action(code, gifts, pacmanRef));
-  document.body.addEventListener("keyup", ({ code }) => stop(code, pacmanRef));
+const stop = ({ code }) => ["ArrowLeft", "ArrowRight"].some((v) => v === code) && pacman.stopMoving();
+
+export function run() {
+  document.body.addEventListener("keydown", action);
+  document.body.addEventListener("keyup", stop);
   document.addEventListener("move", bgMove);
   document.addEventListener("result", display);
 }
