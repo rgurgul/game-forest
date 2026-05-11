@@ -14,9 +14,7 @@ function createImg(url, i) {
 let imgs = [];
 
 export function bgSettings(params = []) {
-  params.forEach((url, i) => {
-    imgs.push(createImg(url, i + 1));
-  });
+  params.forEach((url, i) => imgs.push(createImg(url, i + 1)));
 }
 
 export function bgMove({ detail }) {

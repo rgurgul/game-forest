@@ -12,10 +12,7 @@ const actions = {
   Space: () => new Arrow("./images/arrow.png", pacman.img.getBoundingClientRect(), gifts),
 };
 
-const action = ({ code }) => {
-  if (!actions[code]) return;
-  actions[code](code);
-};
+const action = ({ code }) => Object.keys(actions).some((c) => c === code) && actions[code](code);
 
 const stop = ({ code }) => ["ArrowLeft", "ArrowRight"].some((v) => v === code) && pacman.stopMoving();
 
