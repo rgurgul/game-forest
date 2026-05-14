@@ -24,8 +24,8 @@ export class Arrow extends El {
       let isGift = this.collisionEl.img.dataset.isGift;
       hit && document.dispatchEvent(new CustomEvent("result", { detail: { score: +isGift ? -1 : 1 } }));
       this.collisionEl.img.remove();
-      this.clear();
+      this.destroy();
     });
-    next > 1000 && this.clear();
+    next > 1000 && this.destroy();
   }
 }

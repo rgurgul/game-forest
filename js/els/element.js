@@ -3,7 +3,7 @@ export class El {
     this.collisionEl = collisionEl;
     this.url = url;
   }
-  clear() {
+  destroy() {
     clearInterval(this.img.inte);
     this.img.remove();
   }

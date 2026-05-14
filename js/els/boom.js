@@ -15,7 +15,7 @@ export class Boom extends El {
   moveGift() {
     this.img.style.opacity = (this.img.style.opacity || 1) - 0.1;
     this.img.style.scale = (this.img.style.scale || 1) + 1;
-    setTimeout(() => this.clear, 1000);
+    setTimeout(() => this.destroy, 1000);
   }
   setStyle() {}
 }
